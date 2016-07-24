@@ -12,9 +12,11 @@ end
 
 
 class Articulo
-	def initialize(descripcion, precio)
+	def initialize(descripcion, precio, familia)
 		@descripcion = descripcion
 		@precio = precio 
+		@familia = familia
+
 	end
 
 	def describe_articulo
@@ -27,8 +29,9 @@ end
 
 class ArticuloHogar <Articulo 
 
-	def initialize (descripcion, precio)
-	@familia = "Hogar" 
+	def initialize (descripcion, precio, familia)
+	#@familia = "Hogar" 
+	#@familia = familia 
 	end
 
 	
@@ -36,8 +39,9 @@ end
 
 
 class ArticuloFruteria <Articulo
-	def intialize (descripcion, precio)
-	@familia = "Frutas"
+	def intialize (descripcion, precio, familia)
+	#@familia = "Frutas"
+	#@familia = familia
 	end
 
 	
@@ -47,11 +51,11 @@ end
 
 #Creando los articulos segun el ejercicios 
 
-bananas = ArticuloFruteria.new "Bananas", 10
-orange = ArticuloFruteria.new "Orange Juice", 10
-rice = ArticuloFruteria.new "Rice", 1
-vacumm = ArticuloHogar.new "Vaccum Cleaner", 150
-anchovies = Articulo.new "Anchoas of Cantabric", 2
+bananas = ArticuloFruteria.new "Bananas", 10, "Frutas"
+orange = ArticuloFruteria.new "Orange Juice", 10, "Frutas"
+rice = ArticuloFruteria.new "Rice", 1, "Frutas"
+vacumm = ArticuloHogar.new "Vaccum Cleaner", 150, "Hogar"
+anchovies = Articulo.new "Anchoas of Cantabric", 2, "NA"
 
 bananas.describe_articulo
 vacumm.describe_articulo
@@ -59,9 +63,9 @@ vacumm.describe_articulo
 
 
 #haciendo operaciones de pruebas 
-ref1 = Articulo.new "Martillo Bellota", 15
-ref2 = ArticuloHogar.new "Bote Fairy", 25
-ref3 = ArticuloFruteria.new "Cereza", 1
+ref1 = Articulo.new "Martillo Bellota", 15, "Hogar" 
+ref2 = ArticuloHogar.new "Bote Fairy", 25, "Hogar"
+ref3 = ArticuloFruteria.new "Cereza", 1, "Frutas"
 
 ref1.describe_articulo
 ref2.describe_articulo  #observa que coge el metodo describe articulo de su propia clase esto es sobreescritura de metodo? 
